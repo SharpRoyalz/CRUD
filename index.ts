@@ -1,15 +1,4 @@
-// const express = require("express");
-// const app = express();
-// const port = 3000;
-
-// app.get("/", (req, res) => {
-//     res.send("Hello World!");
-// });
-
-// app.listen(port, () => {
-//     console.log(`Example app listening on port ${port}`);
-// });
-
+// Import
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 
@@ -22,6 +11,7 @@ const port = 3000;
 app.use(express.json());
 
 // Routes
+// Create
 app.post("/register", async (req, res) => {
     const { title, content, publish } = req.body;
     // const name = req.body.name;
@@ -35,12 +25,16 @@ app.post("/register", async (req, res) => {
     });
     res.json({ post });
 });
+
+// Read
 app.get("/users", async (req, res) => {
     const posts = await prisma.post.findMany();
     res.json({ posts });
 });
+
+// Update
 app.put("/update/:id", async (req, res) => {
-    const { title, content, publish } = req.body;
+    const { title, content, published } = req.body;
     const { id } = req.params;
     const updatePosts = await prisma.post.update({
         where: {
@@ -48,10 +42,14 @@ app.put("/update/:id", async (req, res) => {
         },
         data: {
             title,
+            content,
+            published,
         },
     });
     res.json({ updatePosts });
 });
+
+// Delete
 app.delete("/delete/:id", async (req, res) => {
     const { title, content, publish } = req.body;
     const { id } = req.params;

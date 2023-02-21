@@ -2,7 +2,7 @@ POST http://localhost:3000/register
 content-type: application/json
 
 {
-    "title": "Sharask",
+    "title": "asd",
     "content": "shark@gmail.coma",
     "published": 0
 }
@@ -15,7 +15,7 @@ GET http://localhost:3000/users
 
 
 
-PUT  http://localhost:3000/update/12
+PUT  http://localhost:3000/update/13
 content-type: application/json
 
 {
@@ -26,6 +26,6 @@ content-type: application/json
 
 
 
-delete  http://localhost:3000/delete/12
+delete  http://localhost:3000/delete/13
 content-type: application/json
 
