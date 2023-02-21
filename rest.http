@@ -1,0 +1,31 @@
+POST http://localhost:3000/register
+content-type: application/json
+
+{
+    "title": "Sharask",
+    "content": "shark@gmail.coma",
+    "published": 0
+}
+
+###
+
+GET http://localhost:3000/users
+
+###
+
+
+
+PUT  http://localhost:3000/update/12
+content-type: application/json
+
+{
+    "title":"Bago na"
+}
+
+###
+
+
+
+delete  http://localhost:3000/delete/12
+content-type: application/json
+
